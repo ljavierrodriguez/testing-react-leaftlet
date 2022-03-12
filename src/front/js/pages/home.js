@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import MyMap from "../component/MyMap";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -21,6 +23,7 @@ export const Home = () => {
 					Read documentation
 				</a>
 			</p>
+			<MyMap lat="51.505" long="0.09" />
 		</div>
 	);
 };
