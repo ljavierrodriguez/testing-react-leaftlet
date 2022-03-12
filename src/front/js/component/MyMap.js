@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import L from 'leaflet';
 
 
-const MyMap = ({ lat, long }) => {
+const MyMap = ({ lat = 51.5, long = -0.09 }) => {
     useEffect(() => {
         loadMap();
     }, [])
@@ -17,7 +17,7 @@ const MyMap = ({ lat, long }) => {
             center: true
         }).addTo(map);
 
-        var marker = L.marker([51.5, -0.09]).addTo(map)
+        var marker = L.marker([lat, long]).addTo(map)
             .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
             .openPopup();
 

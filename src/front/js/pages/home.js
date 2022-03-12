@@ -23,7 +23,7 @@ export const Home = () => {
 					Read documentation
 				</a>
 			</p>
-			<MyMap lat="51.505" long="0.09" />
+			<MyMap lat="51.505" long="-0.09" />
 		</div>
 	);
 };
