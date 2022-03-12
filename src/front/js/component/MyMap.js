@@ -13,12 +13,21 @@ const MyMap = ({ lat, long }) => {
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            mapZoom: 13
+            mapZoom: 13,
+            center: true
         }).addTo(map);
 
-        L.marker([51.5, -0.09]).addTo(map)
+        var marker = L.marker([51.5, -0.09]).addTo(map)
             .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
             .openPopup();
+
+        centerLeafletMapOnMarker(map, marker);
+    }
+
+    function centerLeafletMapOnMarker(map, marker) {
+        var latLngs = [marker.getLatLng()];
+        var markerBounds = L.latLngBounds(latLngs);
+        map.fitBounds(markerBounds);
     }
 
     return (
